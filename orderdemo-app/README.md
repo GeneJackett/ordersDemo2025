@@ -1,1 +1,1 @@
-hello
+Practicing core angular concepts
