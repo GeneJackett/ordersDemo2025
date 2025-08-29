@@ -1,0 +1,8 @@
+.order-card {
+  max-width: 400px;
+}
+
+.order-header-image {
+  background-image: url('https://material.angular.dev/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
