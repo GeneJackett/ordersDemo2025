@@ -1,6 +1,6 @@
 <h1>Orders</h1>
-<button>Search</button>
-<input type="text" placeholder="Enter Customer ID" [(ngModel)]="textQuery"/>
+<button (click)="filterOrders()">Search</button>
+<input type="text" placeholder="Enter Customer ID" [(ngModel)]="customerIdInput"/>
 <button>Refresh</button>
 <div class="table-wrapper">
 <table mat-table [dataSource]="orders" class="mat-elevation-z8 table-wrapper">

@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, computed, OnInit, signal} from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatTableModule } from '@angular/material/table';
 import { Order, OrderService } from '../services/orderservice';
@@ -11,20 +11,32 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './orders.css'
 })
 export class Orders implements OnInit{
-textQuery = '';
 orders: Order[] = [];
-
+customerIdInput: string ='';
   constructor(private orderService: OrderService) {}
 
   ngOnInit(){
     this.orderService.getOrders().subscribe(data=> {
       this.orders = data;
-      //check data is being called correctly
+      //check data
       console.log(this.orders);
     })
     }
-  
-  filterOders = this.orders.filter(p=>p.customerId === '');
+
+filterOrders() {
+    const input = this.customerIdInput;
+    if (!input) {
+      this.orderService.getOrders().subscribe(data=> {
+      this.orders = data;
+      console.log(this.orders);
+    })
+      return;
+    }
+    this.orders = this.orders.filter(
+      order => order.customerId === input
+    );
+    console.log(this.orders);
+  }
   
   displayedColumns: string[] = ['customerId', 'orderId', 'totalSaleAmount', 'orderDate'];
   }
