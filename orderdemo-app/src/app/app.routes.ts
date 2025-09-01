@@ -4,7 +4,5 @@ export const routes: Routes = [
     {
         path: 'orders',
         component: Orders,
-
-        
     },
 ];

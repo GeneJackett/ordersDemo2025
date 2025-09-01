@@ -4,6 +4,7 @@ table {
 }
 
 .table-wrapper{
+    margin: auto;
     border: 2px black solid;
     border-radius: 25px;
     overflow: hidden; 
@@ -12,4 +13,9 @@ table {
 
 .mat-mdc-table {
     border-collapse: collapse;
+}
+
+.body-header-wrapper {
+  margin:2%;
+  border: 2px black solid;
 }
