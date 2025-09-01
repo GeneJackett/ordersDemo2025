@@ -1,8 +1,10 @@
-<h1>Orders</h1>
+<div class="table-wrapper">
+<h1 style="padding: 10px;">Orders</h1>
 <button (click)="filterOrders()">Search</button>
 <input type="text" placeholder="Enter Customer ID" [(ngModel)]="customerIdInput"/>
 <button>Refresh</button>
-<div class="table-wrapper">
+
+
 <table mat-table [dataSource]="orders" class="mat-elevation-z8 table-wrapper">
 
   <!--- Note that these columns can be defined in any order.
@@ -36,4 +38,29 @@
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
 </div>
+<form>
+<div class="form-vertical-container">
+  <mat-form-field appearance="outline">
+    <mat-label>Customer ID</mat-label>
+    <input matInput placeholder="Customer ID">
+    <mat-hint>All CAPS</mat-hint>
+  </mat-form-field>
+    <mat-form-field appearance="outline">
+    <mat-label>Customer ID</mat-label>
+    <input matInput placeholder="Customer ID">
+    <mat-hint>All CAPS</mat-hint>
+  </mat-form-field>
+    <mat-form-field appearance="outline">
+    <mat-label>Customer ID</mat-label>
+    <input matInput placeholder="Customer ID">
+    <mat-hint>All CAPS</mat-hint>
+  </mat-form-field>
+    <mat-form-field appearance="outline">
+    <mat-label>Customer ID</mat-label>
+    <input matInput placeholder="Customer ID">
+    <mat-hint>All CAPS</mat-hint>
+  </mat-form-field>
+  <button mat-raised-button color="primary" type="submit">Submit</button>
+</div>
+</form>
 
