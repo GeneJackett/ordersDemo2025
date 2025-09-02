@@ -12,13 +12,13 @@ export interface Order {
 
 @Injectable({ providedIn: 'root' })
 export class OrderService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {}        
 
   getOrders(): Observable<Order[]> {
     return this.http.get<Order[]>('http://localhost:8080/api/v1/Orders'); // intercepted & mocked
   }
   createOrder(order: Order): Observable<Order> {
-    return this.http.post<Order>('/api/v1/Orders', order);
+    return this.http.post<Order>('http://localhost:8080/api/v1/create/Order', order);
   }
   deleteOrder(order: Order): Observable<Order> {
     return this.http.delete<Order>('/api/v1/delete/order');
