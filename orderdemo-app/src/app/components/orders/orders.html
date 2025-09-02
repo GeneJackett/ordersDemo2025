@@ -1,7 +1,9 @@
+<div class ="flex-container">
+<div class="flex-item-left">
 <div class="table-wrapper">
 <h1 style="padding: 10px;">Orders</h1>
 <button (click)="filterOrders()">Search</button>
-<input type="text" placeholder="Enter Customer ID" [(ngModel)]="customerIdInput"/>
+<input type="text" placeholder="Enter Customer ID" [(ngModel)]="customerIdInput" [ngModelOptions]="{standalone:true}"/>
 <button>Refresh</button>
 
 
@@ -38,29 +40,33 @@
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
 </div>
-<form>
+</div>
+<div class="flex-item-right">
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()">
 <div class="form-vertical-container">
   <mat-form-field appearance="outline">
     <mat-label>Customer ID</mat-label>
-    <input matInput placeholder="Customer ID">
+    <input matInput placeholder="Customer ID" formControlName="customerId">
     <mat-hint>All CAPS</mat-hint>
   </mat-form-field>
     <mat-form-field appearance="outline">
-    <mat-label>Customer ID</mat-label>
-    <input matInput placeholder="Customer ID">
+    <mat-label>Order ID</mat-label>
+    <input matInput placeholder="Order ID" formControlName="orderId">
     <mat-hint>All CAPS</mat-hint>
   </mat-form-field>
     <mat-form-field appearance="outline">
-    <mat-label>Customer ID</mat-label>
-    <input matInput placeholder="Customer ID">
-    <mat-hint>All CAPS</mat-hint>
+    <mat-label>Total Sale Amount</mat-label>
+    <input matInput placeholder="Total Sale Amount" formControlName="totalSaleAmount">
+    <mat-hint>$10.00</mat-hint>
   </mat-form-field>
     <mat-form-field appearance="outline">
-    <mat-label>Customer ID</mat-label>
-    <input matInput placeholder="Customer ID">
-    <mat-hint>All CAPS</mat-hint>
+    <mat-label>Order Date</mat-label>
+    <input matInput placeholder="Order Date" formControlName="orderDate">
+    <mat-hint>yyyy-MM-dd HH:mm:ss</mat-hint>
   </mat-form-field>
   <button mat-raised-button color="primary" type="submit">Submit</button>
 </div>
 </form>
+</div>
+</div>
 
