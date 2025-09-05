@@ -23,5 +23,9 @@ export class OrderService {
   deleteOrder(order: Order): Observable<Order> {
     return this.http.delete<Order>('/api/v1/delete/order');
   }
+  getOrdersByCustomerId(customerId: string): Observable<Order[]> {
+    return this.http.get<Order[]>('http://localhost:8080/api/v1/getOrdersByCustomerId',{
+      params: {customerId}});
+  }
   
 }

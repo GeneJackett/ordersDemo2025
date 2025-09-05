@@ -1,4 +1,4 @@
-import { Component, computed, OnInit, signal} from '@angular/core';
+import { Component, computed, input, OnInit, signal} from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatTableModule } from '@angular/material/table';
 import { Order, OrderService } from '../services/orderservice';
@@ -7,7 +7,7 @@ import { MatFormField } from '@angular/material/form-field';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
-import { min } from 'rxjs';
+
 
 @Component({
   standalone: true,
@@ -47,7 +47,7 @@ customerIdInput: string ='';
     })
     }
 
-filterOrders() {
+  filterOrders() {
     const input = this.customerIdInput;
     if (!input) {
       this.orderService.getOrders().subscribe(data=> {
@@ -56,10 +56,12 @@ filterOrders() {
     })
       return;
     }
-    this.orders = this.orders.filter(
-      order => order.customerId === input
+    this.orderService.getOrdersByCustomerId(input).subscribe({
+        next: (data: Order[]) => {this.orders = data;
+        console.log(this.orders);
+        }
+      }
     );
-    console.log(this.orders);
   }
   
   displayedColumns: string[] = ['customerId', 'orderId', 'totalSaleAmount', 'orderDate'];
@@ -77,5 +79,10 @@ filterOrders() {
       });
     }
   }
+  //if filter is true 
+  refresh(){
+    this.filterOrders();
+  }
+
 
 }
