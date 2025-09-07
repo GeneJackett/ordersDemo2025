@@ -1,4 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
+@layer theme, base, components, utilities;
+
+
 body { margin: 0; font-family:Verdana, Geneva, Tahoma, sans-serif; }
+
+.mdc-notched-outline_notch{
+    border-style: none;
+}

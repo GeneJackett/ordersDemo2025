@@ -32,6 +32,7 @@
     "@angular/router": "^20.2.0",
     "loadash": "^1.0.0",
     "rxjs": "~7.8.0",
+    "tailwindscss": "^4.1.13",
     "tslib": "^2.3.0",
     "zone.js": "~0.15.0"
   },

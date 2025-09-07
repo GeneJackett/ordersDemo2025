@@ -7,7 +7,7 @@ import { MatFormField } from '@angular/material/form-field';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
-
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   standalone: true,
@@ -20,7 +20,8 @@ import { MatSelectModule } from '@angular/material/select';
     MatInputModule,
     MatSelectModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    MatButtonModule
   ],
   templateUrl: './orders.html',
   styleUrl: './orders.css'
