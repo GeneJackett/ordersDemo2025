@@ -1,0 +1,42 @@
+<div class="flex m-4 gap-8 grid grid-flow-col grid-rows-3">
+<div class="row-span-3 bg-amber-400">
+  <h3 class="text-center">Categories Side</h3>
+  <ul>Sports</ul>
+  <ul>Life</ul>
+  <ul>Career</ul>
+  <ul>Family</ul>
+  <ul>Hobbies</ul>
+</div>
+<mat-card class="basis-128"> 
+  <mat-card-header>
+    <mat-card-title>{{ blog.title }}</mat-card-title>
+    <mat-card-subtitle>By {{ blog.author }} • {{ blog.date | date }}</mat-card-subtitle>
+  </mat-card-header>
+   <mat-card-content>
+    <p *ngIf="!expanded">
+      {{ blog.summary }}
+    </p>
+    <p *ngIf="expanded">
+      {{ blog.content }}
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <!--<button class="border" mat-raised-button color="primary" type="submit">Submit</button>-->
+    <button mat-raised-button color="primary" (click)="expanded = !expanded">
+      {{ expanded ? 'Show Less' : 'Read More' }}
+    </button>
+  </mat-card-actions>
+</mat-card>
+</div>
+<!-- <article>
+    <ng-content></ng-content> 
+</article>
+<footer>
+    <button (click)="toggle()">
+        @if (isExpanded()){
+            Less
+        }@else{
+            More
+        }
+    </button>
+</footer> -->

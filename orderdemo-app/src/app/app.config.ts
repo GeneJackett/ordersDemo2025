@@ -3,7 +3,7 @@ import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
 import { provideHttpClient, withFetch, withInterceptors } from '@angular/common/http';
-import { MockInterceptor } from './components/mock/mock.interceptor';
+//import { MockInterceptor } from './components/mock/mock.interceptor';
 import { ReactiveFormsModule } from '@angular/forms';
 
 export const appConfig: ApplicationConfig = {
